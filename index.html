@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <h1>
+      This is a static template, there is no bundler or bundling involved!
+    </h1>
+
+    <button id="start-btn">开始</button>
+    <button id="pause-btn">暂停</button>
+    <button id="dispose-btn">清除</button>
+
+    <script src="./src/timer.js"></script>
+    <script>
+      
+      let count = 100
+      const oStartBtn = document.querySelector('#start-btn')
+      const oPauseBtn = document.querySelector('#pause-btn')
+      const oDisposeBtn = document.querySelector('#dispose-btn')
+
+      const timer1 = new Timer(true, () => {
+        if (count <= 90) {
+          timer1.dispose()
+          return
+        }
+        count--
+        console.log('===== count:', count)
+      }, 1500)
+
+
+      oStartBtn.addEventListener('click', function() {
+        timer1.start()
+      })
+
+      oPauseBtn.addEventListener('click', function() {
+        timer1.pause()
+      })
+
+      oDisposeBtn.addEventListener('click', function() {
+        timer1.dispose()
+      })
+    </script>
+  </body>
+</html>
