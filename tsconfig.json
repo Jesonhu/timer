@@ -1,6 +1,5 @@
 {
-  "rootDir": "./",
-  "outDir": "./debug",
+  "outDir": "debug",
   "target": "es5",
   "strict": true,
   "include": [
